@@ -1,12 +1,8 @@
+import Body from "./Components/Body";
+
 function App() {
   return (
-          <p className="text-3xl text-blue-500">
-          Namaste React creating netflix gpt 🚀🚀🚀🚀🚀
-        </p>    
-      
-
-        
-    
+    <Body />  
   );
 }
 
