@@ -73,11 +73,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Netflix-GPT
 - Create React App
 - Configured TailwindCSS
+- Header
 
 # Features
 -SignIn/LogIn
     -SignIn/SignUp Form
     -Redirect to Browse Page
+    -Routing of our app
+    -Form Validation
+    -useRef Hook
+    -firebase setup
+    -deploying our app to production
+    -create signUp User Account
+    -implement sign In user API
+    -created Redux Store with userSlice
+    -Implement Sign out feature
+    -Update profile api call
+    -Fetch movies from TMDB movies
+    
+    
+
+    
 -Browse Page(After Authentication)
     -Header
     -Main Movie
