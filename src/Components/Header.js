@@ -1,27 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { auth } from "../Utils/firebase";
-import { USER_ICON } from "../Utils/constant";
-import { signOut } from "firebase/auth";
+import { NETFLIX_LOGO, USER_ICON } from "../Utils/constant";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../Utils/userSlice";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         navigate("/error");
       });
   };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Signed In
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+
+    return ()=> unsubscribe;
+  }, []);
   return (
     <div className="flex md:justify-between md:absolute md:w-screen px-8 pt-2 md:bg-gradient-to-b md:from-black md:z-50">
       <div className="w-28 md:w-44 shadow-2xl relative">
         <img
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          src={NETFLIX_LOGO}
           alt="Logo"
         ></img>
       </div>

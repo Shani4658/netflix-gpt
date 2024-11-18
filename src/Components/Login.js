@@ -2,13 +2,17 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidate } from "../Utils/Validate";
 import { auth } from "../Utils/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { NETFLIX_BG, USER_ICON } from "../Utils/constant";
 
 const Login = () => {
-  const navigate = useNavigate();
+  
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
@@ -18,37 +22,49 @@ const Login = () => {
   const password = useRef(null);
 
   const handleButtonClick = () => {
-    // console.log(email);
-    console.log(password);
-    // console.log(name);
+    
+    
+    
     const msg = checkValidate(email.current.value, password.current.value);
-    // console.log(msg);
+    
     setErrorMessage(msg);
     if (msg) return;
 
     if (!isSignInForm) {
       // SignUp Logic
-      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
-          // Signed up 
+          // Signed up
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/144430086?v=4"
-          }).then(() => {
-            // Profile updated!
-            // ...
-            const {uid,email,displayName,photoURL} = auth.currentUser;
-            dispatch(addUser({
-              uid:uid,email:email,displayName:displayName,photoURL:photoURL
-            }));
-            navigate("/browse");
-          }).catch((error) => {
-            // An error occurred
-            // ...
-            setErrorMessage(error.message);
-          });
-          console.log(user);
+            displayName: name.current.value,
+            photoURL: {USER_ICON},
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              // navigate("/browse");
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+              setErrorMessage(error.message);
+            });
           
+
           // ...
         })
         .catch((error) => {
@@ -59,12 +75,16 @@ const Login = () => {
         });
     } else {
       // SignIn Logic
-      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
-          // Signed in 
+          // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+           
+          // navigate("/browse");
           // ...
         })
         .catch((error) => {
@@ -86,7 +106,7 @@ const Login = () => {
       <div className="absolute">
         <img
           className="object-cover h-screen md:w-screen"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/4d2c5849-b306-4884-9036-6211f7ee0178/web/IN-en-20240930-TRIFECTA-perspective_1e1ca6cd-9e2d-4e9d-9e4b-ba0c2d3a0e31_large.jpg"
+          src={NETFLIX_BG}
           alt="bg-img loading"
         ></img>
       </div>
