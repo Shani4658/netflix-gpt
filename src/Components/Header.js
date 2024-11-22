@@ -5,6 +5,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
+import { toggleGptSearchView } from "../Utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -42,8 +43,12 @@ const Header = () => {
 
     return ()=> unsubscribe;
   }, []);
+
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  }
   return (
-    <div className="flex md:justify-between md:absolute md:w-screen px-8 pt-2 md:bg-gradient-to-b md:from-black md:z-50">
+    <div className="flex md:justify-between md:absolute md:w-screen px-8 md:bg-gradient-to-b md:from-black md:z-50">
       <div className="w-28 md:w-44 shadow-2xl relative">
         <img
           src={NETFLIX_LOGO}
@@ -52,6 +57,7 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex gap-2 items-center">
+          <button className="m-2 p-2 bg-slate-500 bg-opacity-80 hover:bg-opacity-100 text-white font-semibold rounded-lg shadow-lg" onClick={handleGptSearchClick}>GPT Search</button>
           <img
             className="h-10 w-auto rounded-lg"
             src={user?.photoURL || USER_ICON}

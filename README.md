@@ -109,6 +109,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     -TMDB img cdn url
     -Made browse page amazing with tailwindcss
     -usePopular() custom hook.
+    -GPT search feature : Created GPTSearch Page . On clicking GPTSearch Button on Browse Page => it will take use to GptSearch Page . There we built GptSearch Bar and Search Button.
     
     
 
