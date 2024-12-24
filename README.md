@@ -111,6 +111,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     -usePopular() custom hook.
     -GPT search feature : Created GPTSearch Page . On clicking GPTSearch Button on Browse Page => it will take use to GptSearch Page . There we built GptSearch Bar and Search Button.
     -Implemented multi-lingual feature
+    -Integrating GPT API
+        - visit platform.openAI.com
+            -> Go to Profile 
+                -> Click on 'View API Keys'
+        -visit npm openai
+            ->Run in terminal : "npm install openai"
     
     
     
