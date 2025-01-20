@@ -2,8 +2,6 @@ import React from 'react';
 import MovieCard from './MovieCard';
 
 const MovieList = ({ title, movies }) => {
-  console.log(movies); // Log the entire array
-  console.log(movies?.[0]); // Log the first element safely
 
   return (
     <div className='px-6 '>
