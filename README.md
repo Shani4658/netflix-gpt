@@ -132,3 +132,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 -Netflix-GPT
     -Search-bar
     -Movie Suggestion
+
+    -Building gptMovieSuggestion 
