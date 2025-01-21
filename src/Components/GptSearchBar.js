@@ -56,7 +56,15 @@ const GptSearchBar = () => {
 
     console.log(tmdbResults);
 
-    dispatch(addGptMovieResult(tmdbResults));
+    {/*Now I also need to add gptMovies's results  in addGptMovieResult store . Till now I was knowing to add only one data at a time in redux
+      store but this time I will use objects to add data of more than 2 in store . */}
+
+    {/* Instead of passing like this -> dispatch(addGptMovieResult(tmdbResults)); I will do the below  . After this go to gptSlice,js and make 
+      required changes*/}
+
+    dispatch(addGptMovieResult({movieNames: gptMovies ,movieResults : tmdbResults}));
+    
+
   };
 
   
