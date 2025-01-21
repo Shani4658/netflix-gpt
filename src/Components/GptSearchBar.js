@@ -1,11 +1,13 @@
 import React from "react";
 import Lang from "../Utils/Lang";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import genAI from "../Utils/GeminiAi";
 import { API_OPTIONS } from "../Utils/constant";
+import { addGptMovieResult } from "../Utils/gptSlice";
 
 const GptSearchBar = () => {
+  const dispatch = useDispatch();
   const searchText = useRef(null);
   {
     /*Search Function where I will search movie in TMDB*/
@@ -54,8 +56,10 @@ const GptSearchBar = () => {
 
     console.log(tmdbResults);
 
-
+    dispatch(addGptMovieResult(tmdbResults));
   };
+
+  
 
   
 
