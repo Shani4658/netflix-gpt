@@ -9,6 +9,7 @@ import useUpcomingMovies from '../hooks/useUpcomingMovies';
 import usePeopleMovies from '../hooks/usePeopleMovies';
 import GptSearch from './GptSearch'
 import { useSelector } from 'react-redux';
+import TrailerContainer from './TrailerContainer';
 
 
 const Browse = () => {
@@ -25,7 +26,9 @@ const Browse = () => {
       (
         <>
           <MainContainer />
+          <TrailerContainer />
           <SecondaryContainer />
+          
 
         </>
       )}

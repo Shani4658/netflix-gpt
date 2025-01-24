@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import Error from './Error';
 import MovieList from './MovieList';
-import ShowTrailer from './ShowTrailer';
+import TrailerContainer from './TrailerContainer';
 
 
 const GptMovieSuggestion = () => {
@@ -22,7 +22,7 @@ const GptMovieSuggestion = () => {
   return (
     <div>
       <button onClick={()=>setShowMovie(!showMovie)} className='m-2 p-2 text-white bg-black bg-opacity-90 rounded-lg'>Show Movie</button> 
-      {showMovie && <ShowTrailer />}
+      {showMovie && <TrailerContainer />}
       <div className='m-2 p-2 text-white bg-black bg-opacity-90 rounded-lg'>
         
         {movieNames.map((movie , index) => 
