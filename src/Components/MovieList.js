@@ -5,7 +5,6 @@ import useMovieDetails from '../hooks/useMovieDetails';
 
 const MovieList = ({ title, movies }) => {
   const [currentMovieId, setCurrentMovieId] = useState(null);
-
   // Custom hook usage
   useCurrentTrailerVideo(currentMovieId);
   useMovieDetails(currentMovieId);
@@ -32,7 +31,12 @@ const MovieList = ({ title, movies }) => {
               <MovieCard
                 key={movie?.id}
                 posterPath={movie?.poster_path}
-                onClick={() => handleMovieClick(movie?.id)}
+                onClick={() =>{
+                  handleMovieClick(movie?.id);
+                  
+                  }
+                }
+                
               />
             ))
           ) : (

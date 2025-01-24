@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import Error from './Error';
 import MovieList from './MovieList';
-import TrailerContainer from './TrailerContainer';
 
 
 const GptMovieSuggestion = () => {
@@ -13,7 +12,7 @@ const GptMovieSuggestion = () => {
     1. import {useSelector} from react-redux
     2. const {<Name_of_the_components in gptSlice>} = useSelector((store)=> store.gpt) 
   */}
-  console.log(showMovie);
+  // console.log(showMovie);
   const{movieResults , movieNames} = useSelector((store) => store.gpt);
   {/*Now I will check if movieResults is null or not . If it is null then I will show Error page else I will show the data */}
   if(!movieNames){
@@ -22,7 +21,7 @@ const GptMovieSuggestion = () => {
   return (
     <div>
       <button onClick={()=>setShowMovie(!showMovie)} className='m-2 p-2 text-white bg-black bg-opacity-90 rounded-lg'>Show Movie</button> 
-      {showMovie && <TrailerContainer />}
+      {showMovie}
       <div className='m-2 p-2 text-white bg-black bg-opacity-90 rounded-lg'>
         
         {movieNames.map((movie , index) => 
