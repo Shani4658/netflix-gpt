@@ -1,31 +1,33 @@
-import { useSelector } from 'react-redux';
-import VideoBackground from './VideoBackground';
-import VideoTitle from './VideoTitle';
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import VideoBackground from "./VideoBackground";
+import VideoTitle from "./VideoTitle";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.addNowPlayingMovies);
-  const currentMovie = useSelector((store) => store.gpt?.currentMovie);
   const currentMovieDetails = useSelector((store) => store.gpt?.movieDetails);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
-  if(!movies && !currentMovie)return;
-  
-  
-  if(currentMovieDetails){
-    const {original_title , overview , id} = currentMovieDetails;
-    return(
-      <div>
-        <VideoTitle title = {original_title} overview = {overview} />
-        <VideoBackground movieId={id}/>
-      </div>
-    )
-  }
-    
-  const mainMovie = movies[0];
-  const{original_title , overview , id} = mainMovie;
+  useEffect(() => {
+    if (movies?.length > 0) {
+      setSelectedMovie(movies[0]); // Set first movie as default
+    }
+  }, [movies]);
+
+  useEffect(() => {
+    if (currentMovieDetails && currentMovieDetails.success !== false) {
+      setSelectedMovie(currentMovieDetails); // Update when a movie is clicked
+    }
+  }, [currentMovieDetails]);
+
+  if (!selectedMovie) return <h1>Loading...</h1>;
+
+  console.log("Rendering Title:", selectedMovie.original_title);
+
   return (
     <div>
-      <VideoTitle title = {original_title} overview = {overview} />
-      <VideoBackground movieId={id}/>
+      <VideoTitle title={selectedMovie.original_title} overview={selectedMovie.overview} />
+      <VideoBackground movieId={selectedMovie.id} />
     </div>
   );
 };

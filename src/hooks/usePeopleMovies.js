@@ -12,7 +12,6 @@ const usePeopleMovies = ()=>{
             API_OPTIONS,
         );
         const json = await data.json();
-        console.log(json);
         dispatch(addPeopleMovies(json.results));
     };
     useEffect(()=>{
