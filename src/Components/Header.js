@@ -78,6 +78,7 @@ const Header = () => {
             )
           }
           <button
+            id="globalButton"
             className="m-2 p-2 bg-slate-500 bg-opacity-80 hover:bg-opacity-100 text-white font-semibold rounded-lg shadow-lg"
             onClick={handleGptSearchClick}
           >
@@ -88,7 +89,7 @@ const Header = () => {
             src={user?.photoURL || USER_ICON}
             alt="User-Icon"
           ></img>
-          <button className="font-bold text-white" onClick={handleSignOut}>
+          <button id="globalButton" className="font-bold text-white" onClick={handleSignOut}>
             Sign Out
           </button>
         </div>

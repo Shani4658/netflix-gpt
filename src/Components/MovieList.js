@@ -2,9 +2,22 @@ import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
 import useCurrentTrailerVideo from '../hooks/useCurrentTrailerVideo';
 import useMovieDetails from '../hooks/useMovieDetails';
+import { useSelector } from 'react-redux';
+
 
 const MovieList = ({ title, movies }) => {
   const [currentMovieId, setCurrentMovieId] = useState(null);
+  
+
+  {/*Setting up a feature where onClicking any movie from gptSearchSuggestions it will re-direct us to home*/}
+
+
+  const{showGptSearch} = useSelector((store) => store?.gpt);
+  console.log(showGptSearch);
+
+
+
+
   // Custom hook usage
   useCurrentTrailerVideo(currentMovieId);
   useMovieDetails(currentMovieId);
@@ -12,6 +25,10 @@ const MovieList = ({ title, movies }) => {
   const handleMovieClick = (movieId) => {
     console.log("Movie clicked", movieId);
     setCurrentMovieId(movieId); // Schedule state update
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling effect
+    });
   };
 
   // Log the updated currentMovieId when it changes

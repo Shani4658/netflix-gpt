@@ -141,6 +141,7 @@ const Login = () => {
           ></input>
           <p className="relative w-2/3 text-red-600 mx-4">{errorMessage}</p>
           <button
+            id="globalButton"
             className="relative p-4 m-4 w-2/3 text-white rounded-lg hover:bg-red-700 bg-orange-600 "
             onClick={handleButtonClick}
           >
