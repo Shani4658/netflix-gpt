@@ -3,6 +3,7 @@ import MovieCard from './MovieCard';
 import useCurrentTrailerVideo from '../hooks/useCurrentTrailerVideo';
 import useMovieDetails from '../hooks/useMovieDetails';
 import { useSelector } from 'react-redux';
+import {  API_OPTIONS, DEMO_TMDB_KEY } from '../Utils/constant';
 
 
 const MovieList = ({ title, movies }) => {
@@ -13,7 +14,11 @@ const MovieList = ({ title, movies }) => {
 
 
   const{showGptSearch} = useSelector((store) => store?.gpt);
-  console.log(showGptSearch);
+  // console.log(showGptSearch);
+
+  // const apiKey = process.env.REACT_APP_TMDB_KEY.trim();
+  // console.log(`Bearer ${apiKey}`);
+
 
 
 

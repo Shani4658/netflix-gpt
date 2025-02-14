@@ -1,5 +1,5 @@
-import { GEMINI_API_KEY } from "./constant";
+import { DEMO_API_KEY, GEMINI_API_KEY } from "./constant";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(DEMO_API_KEY);
 export default genAI;

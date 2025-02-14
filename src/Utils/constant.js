@@ -9,11 +9,12 @@ export const API_OPTIONS = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4Y2QyYTNkZGQ0NzhiZjM1NjE2M2ZlMmM3YjYwYjJiYSIsIm5iZiI6MTczMTc2OTk5NC41MDU0Njc3LCJzdWIiOiI2NzM4YWViMzRkNDc3MTQwY2UzYWU3MDEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Y79H4uvQXpboo2bppKUL-dhoHbMPT6zzex9PKLFzH-o",
+      "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 export const SUPPORTED_LANGUAGES = [{identifiers:"en",name:"English"},{identifiers:"hindi",name:"Hindi"},{identifiers:"spanish",name:"Spanish"},];
 
-export const OPENAPI_KEY = "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";
-export const GEMINI_API_KEY = "AIzaSyB2ie952XwbGcpjb5GcESoP71Tbwgf3ylU";
+export const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+
+export const DEMO_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
