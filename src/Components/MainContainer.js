@@ -22,11 +22,11 @@ const MainContainer = () => {
 
   if (!selectedMovie) return <h1>Loading...</h1>;
 
-  console.log("Rendering Title:", selectedMovie.original_title);
+  // console.log("Rendering Title:", selectedMovie.original_title);
 
   return (
-    <div>
-      <VideoTitle title={selectedMovie.original_title} overview={selectedMovie.overview} />
+    <div className="">
+      <VideoTitle className="" title={selectedMovie.original_title} overview={selectedMovie.overview} />
       <VideoBackground movieId={selectedMovie.id} />
     </div>
   );

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
 import useCurrentTrailerVideo from '../hooks/useCurrentTrailerVideo';
 import useMovieDetails from '../hooks/useMovieDetails';
-import { useSelector } from 'react-redux';
-import {  API_OPTIONS, DEMO_TMDB_KEY } from '../Utils/constant';
+
+
 
 
 const MovieList = ({ title, movies }) => {
@@ -13,7 +13,7 @@ const MovieList = ({ title, movies }) => {
   {/*Setting up a feature where onClicking any movie from gptSearchSuggestions it will re-direct us to home*/}
 
 
-  const{showGptSearch} = useSelector((store) => store?.gpt);
+  // const{showGptSearch} = useSelector((store) => store?.gpt);
   // console.log(showGptSearch);
 
   // const apiKey = process.env.REACT_APP_TMDB_KEY.trim();

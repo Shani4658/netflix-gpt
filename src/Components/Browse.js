@@ -35,7 +35,7 @@ const Browse = () => {
     }
   },[]);
   return (
-    <div>
+    <div className='flex flex-col '>
       <Header />
       {showGptSearch ? (<GptSearch />) :
       (

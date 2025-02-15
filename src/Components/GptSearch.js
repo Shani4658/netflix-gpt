@@ -3,20 +3,26 @@ import GptMovieSuggestion from './GptMovieSuggestion'
 import GptSearchBar from './GptSearchBar'
 import { NETFLIX_BG } from '../Utils/constant'
 
+
 const GptSearch = () => {
   return (
-    <div>
-      <div className='fixed -z-10 '>
+    <>
+      <div className='absolute -z-10 '>
         <img
+          className='w-screen h-screen object-cover'
           src={NETFLIX_BG}
           alt="Background"
         />  
-
+        
       </div>
-      <GptSearchBar />
-      <GptMovieSuggestion />
       
-    </div>
+      <div className='pt-[-20%]'>
+        
+        <GptSearchBar />
+        <GptMovieSuggestion />
+      </div>
+      
+    </>
   )
 }
 

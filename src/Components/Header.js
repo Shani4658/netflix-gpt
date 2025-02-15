@@ -59,15 +59,14 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
   return (
-    <div className="flex md:justify-between md:absolute md:w-screen px-8 md:bg-gradient-to-b md:from-black md:z-50">
-      <div className="w-28 md:w-44 shadow-2xl relative">
-        <img src={NETFLIX_LOGO} alt="Logo"></img>
-      </div>
+    <div className="flex px-8  flex-col  md:justify-between md:absolute md:w-screen  md:z-50  md:flex-row    ">
+
+      <img className="w-44 flex m-auto md:mx-0 " src={NETFLIX_LOGO} alt="Logo"></img>
       {user && (
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center  justify-between sm:justify-center md:justify-end">
           {
             showGPTSearch && (
-            <select className="m-2 px-4 py-2 bg-slate-500 rounded-lg" onChange={languageChange}>
+            <select className="text-white bg-black bg-opacity-60 border-2 border-slate-400 p-1 rounded-lg font-semibold px-1 hover:bg-white hover:text-black" onChange={languageChange}>
               {SUPPORTED_LANGUAGES.map((lang) => (
                 <option key={lang.identifiers} value={lang.identifiers}>
                   {lang.name}
@@ -79,21 +78,24 @@ const Header = () => {
           }
           <button
             id="globalButton"
-            className="m-2 p-2 bg-slate-500 bg-opacity-80 hover:bg-opacity-100 text-white font-semibold rounded-lg shadow-lg"
+            className="text-white bg-black bg-opacity-60 border-2 border-slate-400 p-1 rounded-lg font-semibold px-1 hover:bg-white hover:text-black"
             onClick={handleGptSearchClick}
           >
             {showGPTSearch ? "Home Page" : "GPTSearch"}
           </button>
-          <img
-            className="h-10 w-auto rounded-lg"
-            src={user?.photoURL || USER_ICON}
-            alt="User-Icon"
-          ></img>
-          <button id="globalButton" className="font-bold text-white" onClick={handleSignOut}>
-            Sign Out
-          </button>
+          <div className="flex gap-2 items-center translate-x-7 sm:translate-x-2">
+            <img
+              className="h-9 w-auto rounded-lg"
+              src={user?.photoURL || USER_ICON}
+              alt="User-Icon"
+            ></img>
+            <button id="globalButton" className="font-bold sm:text-white hover:text-blue-700 " onClick={handleSignOut}>
+              Sign Out
+            </button>
+          </div>
         </div>
       )}
+      
     </div>
   );
 };
