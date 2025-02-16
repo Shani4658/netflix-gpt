@@ -73,11 +73,55 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Netflix-GPT
 - Create React App
 - Configured TailwindCSS
+- Header
 
 # Features
 -SignIn/LogIn
     -SignIn/SignUp Form
     -Redirect to Browse Page
+    -Routing of our app
+    -Form Validation
+    -useRef Hook
+    -firebase setup
+    -deploying our app to production
+    -create signUp User Account
+    -implement sign In user API
+    -created Redux Store with userSlice
+    -Implement Sign out feature
+    -Update profile api call
+    -BugFix: Sign up user displayName and profile picture update
+    -BugFix: If the user is not logged in re-direct to '/browse' to login page
+    -Unsubscribing onAuthStateChanged callback()
+    -Adding constant file to the project
+    -Register TMDB API & create an app & get access token
+    -Get Data from TMDB now playing movies list API
+    -Custom Hook for Now Playing Movies
+    -Update Store with movie Data
+    -Planning for mainConatiner and SecondaryContainer
+    -Fetch Data for Trailer Video
+    -Update Store with Trailer Video Data
+    -Embedded the Youtube video and amek it auto play and mute
+    -Tailwind classes to make Main Conatiner look awesome
+    -Build secondary component
+    -Creating movie suggestions
+    -Build movieList
+    -Build movieCard
+    -TMDB img cdn url
+    -Made browse page amazing with tailwindcss
+    -usePopular() custom hook.
+    -GPT search feature : Created GPTSearch Page . On clicking GPTSearch Button on Browse Page => it will take use to GptSearch Page . There we built GptSearch Bar and Search Button.
+    -Implemented multi-lingual feature
+    -Integrating GPT API
+        - visit platform.openAI.com
+            -> Go to Profile 
+                -> Click on 'View API Keys'
+        -visit npm openai
+            ->Run in terminal : "npm install openai"
+    
+    
+    
+
+    
 -Browse Page(After Authentication)
     -Header
     -Main Movie
@@ -88,3 +132,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 -Netflix-GPT
     -Search-bar
     -Movie Suggestion
+
+    -Building gptMovieSuggestion 
