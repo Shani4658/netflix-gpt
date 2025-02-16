@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { toggleGptSearchView } from "../Utils/gptSlice";
 import { changeLanguage } from "../Utils/configSlice";
+import NetflixLogo from "../StreamFlix2.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ const Header = () => {
   return (
     <div className="flex px-8  flex-col  md:justify-between md:absolute md:w-screen  md:z-50  md:flex-row    ">
 
-      <img className="w-44 flex m-auto md:mx-0 " src={NETFLIX_LOGO} alt="Logo"></img>
+      <img className="w-44 flex m-auto md:mx-0 shadow-2xl" src={NetflixLogo} alt="Logo"></img>
       {user && (
         <div className="flex gap-2 items-center  justify-between sm:justify-center md:justify-end">
           {
