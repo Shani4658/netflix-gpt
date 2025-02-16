@@ -20,7 +20,7 @@ const GptMovieSuggestion = () => {
   }
   return (
     <div>
-      <button onClick={()=>setShowMovie(!showMovie)} className='m-2 p-2 text-white bg-black bg-opacity-90 rounded-lg'>Show Movie</button> 
+      {/* <button onClick={()=>setShowMovie(!showMovie)} className='m-2 p-2 text-white bg-black bg-opacity-90 rounded-lg'>Show Movie</button>  */}
       {showMovie}
       <div className='m-2 p-2 text-white bg-black bg-opacity-90 rounded-lg'>
         

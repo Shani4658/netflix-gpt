@@ -7,7 +7,7 @@ const MovieCard = ({posterPath , onClick}) => {
     return null;
   }
   return (
-    <div className='w-48 rounded-lg' onClick={onClick}>
+    <div className='w-24 sm:w-48 rounded-lg' onClick={onClick}>
         <img className="" alt={'Movie Card'} src={IMG_CDN_URL+posterPath} />
     </div>
   )

@@ -78,7 +78,7 @@ const Header = () => {
           }
           <button
             id="globalButton"
-            className="text-white bg-black bg-opacity-60 border-2 border-slate-400 p-1 rounded-lg font-semibold px-1 hover:bg-white hover:text-black"
+            className="text-sm text-white bg-black bg-opacity-60 border-2 border-slate-400 p-2 rounded-lg font-semibold min-w-fit  hover:bg-white hover:text-black"
             onClick={handleGptSearchClick}
           >
             {showGPTSearch ? "Home Page" : "GPTSearch"}
